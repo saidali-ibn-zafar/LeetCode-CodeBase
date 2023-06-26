@@ -53,3 +53,55 @@ var createHelloWorld = () => {
     return "Hello World";
   };
 };
+
+// - - - - -
+
+const isOneBitCharacter = (bits) => {
+    let len = bits.length;
+    let i = 0;
+
+    while (i < len - 1) {
+        if (bits[i] === 0) {
+            i += 1;
+        } else {
+            i += 2;
+        }
+    }
+
+    return i === len - 1;
+}
+
+// - - - - - 
+
+const addDigits = (num) => {
+    let res;
+    do {
+        res = num.toString().split("").reduce((acc, curr) => acc + Number(curr), 0);
+        num = res
+    } while (res >= 10)
+    return res;
+};
+
+// - - - - - 
+
+const isAnagram = (s, t) => {
+    const sortedS = s.split("").sort().join("");
+    const sortedT = t.split("").sort().join("");
+
+    return (sortedS === sortedT)
+};
+
+// - - - - - 
+
+const missingNumber = (nums) => {
+    const sortedNums = nums.sort((a, b) => a - b);
+    const len = nums.length;
+
+    for (let i = 0; i <= len; i++) {
+        if (sortedNums[i] !== i) {
+            return i;
+        }
+    }
+};
+
+// - - - - - 
