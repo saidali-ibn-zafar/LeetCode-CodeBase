@@ -122,3 +122,35 @@ const generate = (numRows) => {
     }
     return pascalsTriangle;
 };
+
+// - - - - - 
+
+const arraySign = (nums) => {
+    const res = nums.reduce((acc, curr) => acc * curr);
+    if (res > 0) {
+        return 1;
+    }
+    else if (res < 0) {
+        return -1
+    }
+    else {
+        return 0;
+    }
+};
+
+// - - - - - 
+
+const kidsWithCandies = (candies, extraCandies) => {
+    const extraAddedArr = candies.map(el => el + extraCandies);
+    const max = Math.max(...candies);
+    let boolRes = [];
+    for (let i = 0; i < candies.length; i++) {
+        if (extraAddedArr[i] >= max) {
+            boolRes.push(true);
+        }
+        else {
+            boolRes.push(false);
+        }
+    }
+    return boolRes;
+};
