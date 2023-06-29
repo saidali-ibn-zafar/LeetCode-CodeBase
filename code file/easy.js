@@ -154,3 +154,41 @@ const kidsWithCandies = (candies, extraCandies) => {
     }
     return boolRes;
 };
+
+// - - - - - 
+
+const canConstruct = (ransomNote, magazine) => {
+    const a = Array.from(ransomNote);
+    const b = Array.from(magazine);
+    let counter = 0;
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b.length; j++) {
+            if (a[i] === b[j]) {
+                b.splice(j, 1);
+                counter++;
+                break;
+            }
+        }
+    }
+    return counter === a.length;
+};
+
+console.log(canConstruct("ap", "prague"));
+
+// - - - - -
+
+const maximumNumberOfStringPairs = (words) => {
+    let counter = 0;
+    words = words.map(el => Array.from(el).sort().join(""));
+
+    for (let i = 0; i < words.length; i++) {
+        for (let j = i + 1; j < words.length; j++) {
+            if (words[i] === words[j]) {
+                counter++
+            }
+        }
+    }
+    return counter;
+};
+
+// - - - - - 
