@@ -192,3 +192,36 @@ const maximumNumberOfStringPairs = (words) => {
 };
 
 // - - - - - 
+
+// 509. Fibonacci Number
+const fib = (n) => {
+  if (n === 0) {
+    return n;
+  }
+  else if (n === 1) {
+    return n
+  }
+
+  return fib(n - 1) + fib(n - 2);
+};
+
+// - - - - - 
+
+// 2729. Check if The Number is Fascinating
+const isFascinating = (n) => {
+  if (n.toString().includes("0")) {
+    return false;
+  }
+
+  let output = "";
+  for (let i = 1; i <= 3; i++) {
+    output += i * n;
+  }
+
+  const madeArr = Array.from(output);
+  if (!madeArr.includes("0") && madeArr.sort().join("") === "123456789") {
+    return true;
+  }
+
+  return false;
+};
