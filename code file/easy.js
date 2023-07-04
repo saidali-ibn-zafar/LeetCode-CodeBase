@@ -225,3 +225,12 @@ const isFascinating = (n) => {
 
   return false;
 };
+
+// - - - - - 
+
+// 125. Valid Palindrome
+const isPalindrome = (s) => {
+    const alphanumericString = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+
+    return (alphanumericString.split("").reverse().join("") === alphanumericString)
+};
