@@ -234,3 +234,40 @@ const isPalindrome = (s) => {
 
     return (alphanumericString.split("").reverse().join("") === alphanumericString)
 };
+
+// - - - - - 
+
+// 1051. Height Checker
+const heightChecker = (heights) => {
+    const sortedArr = [...heights].sort((a, b) => a - b);
+    let counter = 0;
+    for (let i = 0; i < heights.length; i++) {
+        if(heights[i] !== sortedArr[i]){
+            counter++;
+        }
+    }
+    return counter;
+};
+
+// - - - - - 
+
+// 1046. Last Stone Weight
+/**
+ * @param {number[]} stones
+ * @return {number}
+ */
+const lastStoneWeight = (stones) => {
+    let sortedStones = [...stones].sort((a, b) => a - b);
+
+    while (sortedStones.length > 1) {
+        let max1 = sortedStones.pop();
+        let max2 = sortedStones.pop();
+        let result = max1 - max2;
+        sortedStones.push(result);
+        sortedStones.sort((a, b) => (a - b));
+    }
+
+    return sortedStones[0];
+};
+
+ // - - - - - 
