@@ -271,3 +271,35 @@ const lastStoneWeight = (stones) => {
 };
 
  // - - - - - 
+
+// 860. Lemonade Change
+/**
+ * @param {number[]} bills
+ * @return {boolean}
+ */
+const lemonadeChange = (bills) => {
+    const fives = [];
+    const tens = [];
+
+    for (let i = 0; i < bills.length; i++) {
+        if (bills[i] === 5) {
+            fives.push(5);
+        } else if (bills[i] === 10) {
+            if (!fives.length) return false;
+            fives.pop();
+            tens.push(10);
+        } else {
+            if (tens.length && fives.length) {
+                fives.pop();
+                tens.pop();
+            } else if (!tens.length && fives.length >= 3) {
+                fives.splice(0, 3);
+            } else {
+                return false;
+            }
+        }
+    }
+    return true;
+};
+
+// - - - - - 
