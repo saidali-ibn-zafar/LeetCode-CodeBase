@@ -303,3 +303,34 @@ const lemonadeChange = (bills) => {
 };
 
 // - - - - - 
+
+// 744. Find Smallest Letter Greater Than Target
+/**
+ * @param {character[]} letters
+ * @param {character} target
+ * @return {character}
+ */
+const nextGreatestLetter = (letters, target) => {
+    letters = letters.sort((a, b) => a.localeCompare(b));
+
+    for (let i = 0; i < letters.length; i++) {
+        // not <, it should be >, because f is greater then c, it is just an example
+        if (letters[i] > target) {
+            return letters[i];
+        }
+    }
+
+    return letters[0];
+};
+
+// - - - - - 
+
+// 1331. Rank Transform of an Array
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+const arrayRankTransform = (arr) => {
+    const sortedArr = Array.from(new Set(arr)).sort((a, b) => a - b);
+    return arr.map((x) => sortedArr.indexOf(x) + 1);
+};
