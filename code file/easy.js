@@ -334,3 +334,38 @@ const arrayRankTransform = (arr) => {
     const sortedArr = Array.from(new Set(arr)).sort((a, b) => a - b);
     return arr.map((x) => sortedArr.indexOf(x) + 1);
 };
+
+// - - - - - 
+
+// 73. Set Matrix Zeroes
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+
+const setZeroes = (matrix) => {
+  const rows = matrix.length;
+  const columns = matrix[0].length;
+
+  const zeroRows = [];
+  const zeroColumns = [];
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      if (matrix[i][j] === 0) {
+        zeroRows.push(i);
+        zeroColumns.push(j);
+      }
+    }
+  }
+
+  for (let row of zeroRows) {
+    matrix[row].fill(0);
+  }
+
+  for (let column of zeroColumns) {
+    for (let i = 0; i < rows; i++) {
+      matrix[i][column] = 0;
+    }
+  }
+};
