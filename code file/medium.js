@@ -65,3 +65,14 @@ const setZeroes = (matrix) => {
     }
   }
 };
+
+// - - - - - 
+
+// 162. Find Peak Element
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+const findPeakElement = (nums) => nums.indexOf(Math.max(...nums));
+
